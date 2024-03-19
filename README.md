@@ -62,19 +62,12 @@ BrokenChairs180K/
 # Create a conda virtual environment for basic training/testing: 
 conda create -n Looking3D python=3.8
 conda activate Looking3D
-pip install opencv-python wandb tqdm albumentations einops h5py kornia bounding_box matplotlib omegaconf trimesh[all]
-
-# install pytorch
-pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 --index-url https://download.pytorch.org/whl/cu118
-
-# install xformers
-pip install ninja
-pip install -v -U git+https://github.com/facebookresearch/xformers.git@main#egg=xformers
+pip install opencv-python wandb tqdm albumentations einops h5py kornia bounding_box matplotlib omegaconf trimesh[all] xformers
 
 # install pyrender and pytorch3d (optional; only required for rendering multiview images)
 pip install pyrender
 pip install fvcore iopath
-pip install --no-index --no-cache-dir pytorch3d -f https://dl.fbaipublicfiles.com/pytorch3d/packaging/wheels/py38_cu118_pyt201/download.html
+pip install "git+https://github.com/facebookresearch/pytorch3d.git"
 ```
 
 
@@ -110,8 +103,8 @@ You can use the python function ```predict(.)``` in the ```demo.py``` file for t
 from demo import predict
 
 pred_labels = predict(query_path = "sample/query_example.png", \
-                      mv_path = "sample/mv_images/", \
-                      resume_ckpt = "experiments/CMT-final/checkpoints/model.pt", device = "cuda", topk = 100)
+                       mv_path = "sample/mv_images/", \
+                       resume_ckpt = "experiments/CMT-final/checkpoints/model.pt", device = "cuda", topk = 100)
   ```
 To render the multiview images, you can use the following commands:
 
