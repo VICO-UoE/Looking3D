@@ -26,7 +26,7 @@ if __name__ == "__main__":
     local_rank = int(os.environ['LOCAL_RANK'])
 
     _, test_dataset = get_dataloaders(args, num_mesh_images = [-1,args.num_mesh_images])
-    models = build_network(args, local_rank)
+    models = build_network(args.batch_size, args.device, args.distributed, args.resume_ckpt, local_rank)
     [model.eval() for model in models]
     result = test(args, test_dataset, models)
     res_tnsr_values = torch.Tensor([i for i in result.values()]).cuda()
