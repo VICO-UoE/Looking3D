@@ -132,13 +132,13 @@ def main(obj_path, num_views, out_path, dist = 3, elev = 20, image_width = 256, 
         np.save(output_path.replace('.png', '.npy'), {'pxy': xy, 'is_visible':is_visible})
         np.save(output_path.replace('.png', '_depth.npy'), depth)
 
-    create_pos3d_encoding(obj_path, out_path)
+    create_pos3d_encoding(obj_path, out_path, size = image_width)
 
 
-def create_pos3d_encoding(obj_path, out_path):
+def create_pos3d_encoding(obj_path, out_path, size = 256):
 
     stride = 8
-    out_dim = 256//stride
+    out_dim = size//stride
     paths = glob.glob(out_path+'/*.png')
 
     mesh = trimesh.load(obj_path, force = 'mesh')
