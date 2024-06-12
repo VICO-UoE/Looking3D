@@ -1,8 +1,18 @@
 # Looking 3D: Anomaly Detection with 2D-3D Alignment
 
-> [**Looking 3D: Anomaly Detection with 2D-3D Alignment**](https://arxiv.org/abs/xxx.xxxxx)<br>
-> Ankan Bhunia, Changjian Li, Hakan Bilen<br>
-> CVPR 2024
+<table>
+  <tr>
+    <td>
+      <strong><a href="https://arxiv.org/abs/xxx.xxxxx">Looking 3D: Anomaly Detection with 2D-3D Alignment</a></strong><br>
+      Ankan Bhunia, Changjian Li, Hakan Bilen<br>
+      CVPR 2024
+    </td>
+    <td>
+      <img src="figures/teaser.jpg" alt="Description of image" width="300" />
+    </td>
+  </tr>
+</table>
+
 
 
 [![Website](https://img.shields.io/badge/Project-Website-87CEEB)](https://xxx.xxxxx)
