@@ -8,7 +8,7 @@
       CVPR 2024
     </td>
     <td>
-      <img src="figures/teaser.jpg" alt="Description of image" width="300" />
+      <img src="figures/teaser.jpg" alt="Description of image" width="150" />
     </td>
   </tr>
 </table>
