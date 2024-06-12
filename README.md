@@ -67,23 +67,8 @@ pred_labels = predict(query_path = "sample/query_example.png", \
                        mv_path = "sample/mv_images/", \
                        resume_ckpt = "experiments/CMT-final/checkpoints/model.pt", device = "cuda", topk = 100)
   ```
-To render the multiview images, you can use the following commands:
 
-
-```bash
-# Step 1. Render grayscale multiview images (pytorch3d and pyrender required)
-python utils/render_multiview.py \
-  --obj_path data/in-the-wild-examples/mesh_reference.glb \
-  --out_path data/itw_testing/sample/mv_images/ \
-  --num_imgs 20 \
-  --gray_scale
-
-# Step 2. Test the model
-python demo.py --mv_path data/itw_testing/sample/mv_images/ \
-  --query_path data/in-the-wild-examples/query_example.png \
-  --resume_ckpt experiments/CMT-final/checkpoints/model.pt
-```
-
+Please see ```CUSTOM.md``` for a detailed discussion on how to use the codebase to test and train on custom datasets containing shape-image pairs.
 
 ## Citation
 
