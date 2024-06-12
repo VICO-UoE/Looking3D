@@ -2,14 +2,9 @@
 
 <table>
   <tr>
-    <td>
       <strong><a href="https://arxiv.org/abs/xxx.xxxxx">Looking 3D: Anomaly Detection with 2D-3D Alignment</a></strong><br>
       Ankan Bhunia, Changjian Li, Hakan Bilen<br>
       CVPR 2024
-    </td>
-    <td>
-      <img src="figures/teaser.jpg" alt="Description of image" width="150" />
-    </td>
   </tr>
 </table>
 
