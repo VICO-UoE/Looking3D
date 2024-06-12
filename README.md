@@ -30,8 +30,16 @@
 Standard Anomaly Detection (AD) frameworks perform pooly without clear defination of ‘normality’, especially when abnormalities are arbitrary and instance-specific. Our paper introduces a novel conditional AD task, along with a new benchmark and an effective solution, that aims to identify and localize anomalies from a photo of an object instance (i.e., the query image), in relation to a reference 3D model. The 3D model provides the reference shape for the regular object instance, and hence a clear definition of regularity for the query image. This setting is motivated by real-world applications in inspection and quality control, where an object instance is manufactured based on a reference 3D model, which can then be used to identify anomalies (i.e., production faults, damages) from a photo of the instance.
 
 
-<img src=figures/cad.jpeg width="600" >
-
+<table>
+  <tr>
+    <td style="text-align: center;">
+      <img src="figures/left.jpeg" alt="Image 1 Description" width="300" />
+    </td>
+    <td style="text-align: center;">
+      <img src="figures/right.jpeg" alt="Image 2 Description" width="300" />
+    </td>
+  </tr>
+</table>
 
 ## Pretrained Models
  - Download the pretrained model from [here](https://drive.google.com/drive/folders/1D9YFDP0kJkojBa1Rb-fM2uAZoS_1Pm3G?usp=sharing) and place the .pt file inside ```experiments/CMT-final/checkpoints/```
