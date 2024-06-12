@@ -41,6 +41,11 @@ Standard Anomaly Detection (AD) frameworks perform pooly without clear definatio
   </tr>
 </table>
 
+## Method
+
+our model ```Correspondence Matching Transformer``` (CMT) learns to capture cross-modality relationships by applying a novel cross-attention mechanism through a sparse set of local correspondences. We use an auxiliary task that forces the model to learn viewpoint invariant representations for each local patch in query and multi-view images enabling our method to align local
+features corresponding to the same 3D location regardless of its viewpoint without ground truth correspondences.
+
 ## Pretrained Models
  - Download the pretrained model from [here](https://drive.google.com/drive/folders/1D9YFDP0kJkojBa1Rb-fM2uAZoS_1Pm3G?usp=sharing) and place the .pt file inside ```experiments/CMT-final/checkpoints/```
 
