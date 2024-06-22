@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-      <strong><a href="https://arxiv.org/abs/xxx.xxxxx">Looking 3D: Anomaly Detection with 2D-3D Alignment</a></strong><br>
+      <strong><a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Bhunia_Looking_3D_Anomaly_Detection_with_2D-3D_Alignment_CVPR_2024_paper.pdf">Looking 3D: Anomaly Detection with 2D-3D Alignment</a></strong><br>
       Ankan Bhunia, Changjian Li, Hakan Bilen<br>
       CVPR 2024
   </tr>
