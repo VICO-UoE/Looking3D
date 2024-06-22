@@ -19,7 +19,7 @@
 
 ## Dataset
 
-<img src=figures/data.gif>
+<img src=figures/teaser.gif>
 
  - Download ```BrokenChairs180K.tar.gz``` from [here](https://drive.google.com/drive/folders/1D9YFDP0kJkojBa1Rb-fM2uAZoS_1Pm3G?usp=sharing).
  - The dataset contains around 180K rendered images with 100K classified as anomaly and 80K normal.
