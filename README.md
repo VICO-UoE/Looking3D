@@ -1,5 +1,6 @@
 # Looking 3D: Anomaly Detection with 2D-3D Alignment
 
+
 <table>
   <tr>
       <strong><a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Bhunia_Looking_3D_Anomaly_Detection_with_2D-3D_Alignment_CVPR_2024_paper.pdf">Looking 3D: Anomaly Detection with 2D-3D Alignment</a></strong><br>
@@ -14,11 +15,12 @@
 [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://openaccess.thecvf.com/content/CVPR2024/papers/Bhunia_Looking_3D_Anomaly_Detection_with_2D-3D_Alignment_CVPR_2024_paper.pdf)
 [![dataset](https://img.shields.io/badge/Dataset-link-blue)](https://drive.google.com/drive/folders/1D9YFDP0kJkojBa1Rb-fM2uAZoS_1Pm3G?usp=sharing)
 
+<img src=figures/title.jpg>
 
 <hr />
 
 
-<img src=figures/teaser.gif>
+
 
 ## Dataset
 
