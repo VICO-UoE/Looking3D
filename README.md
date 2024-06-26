@@ -26,8 +26,11 @@
 
  - Download ```BrokenChairs180K.tar.gz``` from [here](https://drive.google.com/drive/folders/1D9YFDP0kJkojBa1Rb-fM2uAZoS_1Pm3G?usp=sharing).
  - The dataset contains around 180K rendered images with 100K classified as anomaly and 80K normal.
+ - Different types of abnormalities include: missing parts, broken parts, swapped components, mis-alignment parts.
+ - Testing is performed on previously unseen instances.
  - Please see ```DATA.md```  for folder structure.
 
+<img src=figures/data_preview.gif>
 
 ## Our novel task & Conditional AD benchmark
 Standard Anomaly Detection (AD) frameworks perform pooly without clear defination of ‘normality’, especially when abnormalities are arbitrary and instance-specific. Our paper introduces a novel conditional AD task, along with a new benchmark and an effective solution, that aims to identify and localize anomalies from a photo of an object instance (i.e., the query image), in relation to a reference 3D model. The 3D model provides the reference shape for the regular object instance, and hence a clear definition of regularity for the query image. This setting is motivated by real-world applications in inspection and quality control, where an object instance is manufactured based on a reference 3D model, which can then be used to identify anomalies (i.e., production faults, damages) from a photo of the instance.
