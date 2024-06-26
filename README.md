@@ -26,7 +26,7 @@
 
  - Download ```BrokenChairs180K.tar.gz``` from [here](https://drive.google.com/drive/folders/1D9YFDP0kJkojBa1Rb-fM2uAZoS_1Pm3G?usp=sharing).
  - The dataset contains around 180K rendered images with 100K classified as anomaly and 80K normal.
- - Different types of abnormalities include: missing parts, broken parts, swapped components, mis-alignment parts.
+ - Different types of abnormalities include: missing parts, broken parts, swapped components, mis-alignments.
  - Testing is performed on previously unseen instances.
  - Please see ```DATA.md```  for folder structure.
 
