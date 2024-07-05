@@ -143,7 +143,7 @@ python demo.py --mv_path data/itw_testing/sample/mv_images/ \
 
 If you use the results and code for your research, please cite our paper:
 
-```json {"id":"01J22BGWJ16CEQ2P830YSEDQ4B"}
+```
 @article{bhunia2024look3d,
   title={Looking 3D: Anomaly Detection with 2D-3D Alignment},
   author={Bhunia, Ankan Kumar and Li, Changjian and Bilen, Hakan},
