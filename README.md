@@ -63,6 +63,7 @@ Note:
 [3]`BrokenChairs/shapes/`: `<mv_images/*.png>`: grayscale multi-view image,
 `<mv_images/*.json>`: json file containing intristic and extrinsic parameters of the rendered image,
 `<mv_images/*.npy>`: npy file containing 2D-3D correspondence points.
+`<model_id.txt>`: corresponding ShapeNet id.
 
 Please refer to `utils/render_multiview.py` which can be used to obtain the above `<png/json/npy>` files from any given `obj/stl/glb` mesh shape.
 
