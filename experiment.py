@@ -72,7 +72,7 @@ hooks = [attention_decoder.module.crossatten.transformer_blocks[-1].attn1.to_q.r
 #     with torch.no_grad():
 #         output_dict = forward_cmt(batch, models, is_train = False, topk = args.topk)
 #     vis_img = create_pose_parallel(batch, output_dict)
-#     for batch_idx in range(batch['imgs'].shape[0]):
+#     for batch_idx in range(batch['query_imgs'].shape[0]):
 #       filename = os.path.join(out_dir, batch['path'][batch_idx].split('/')[-1])
 #       cv2.imwrite(filename, (((vis_img.permute(0,2,3,1).cpu().numpy()+1)/2)*255)[batch_idx])
 # [_.remove() for _ in hooks]

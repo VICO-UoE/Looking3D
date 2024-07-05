@@ -305,7 +305,7 @@ def _generate_pseudo_labels(image1, image2, pxy_v1, encoder, projector):
         return pred_px_v2.detach()
 
 
-def forward_vlfa(batch, models, optimizer, mode = 'wsl'): #fsl->fully supervied, wsl->weakly supervised, sl-> supervied
+def forward_vlfa(batch, models, optimizer): #fsl->fully supervied, wsl->weakly supervised, sl-> supervied
 
     """
 
@@ -322,7 +322,6 @@ def forward_vlfa(batch, models, optimizer, mode = 'wsl'): #fsl->fully supervied,
         
     - models (list): A list containing the encoder, encoder_ema, projector, projector_ema, attention_decoder, and local_contrast models.
     - optimizer (torch.optim.Optimizer): The optimizer to use for updating model parameters.
-    - mode (str, optional): The training mode, which can be 'fsl' (fully supervised), 'wsl' (weakly supervised), or 'sl' (supervised). Default is 'wsl'.
 
     Returns:
     - updated_model (list): A list containing the updated model parameters.
@@ -346,25 +345,20 @@ def forward_vlfa(batch, models, optimizer, mode = 'wsl'): #fsl->fully supervied,
     img_v1 = img_v1.cuda(non_blocking=True)
     img_v2 = img_v2.cuda(non_blocking=True)
 
-    if mode in ['fsl', 'wsl']:
+    rand_idx = torch.randperm(B)
+    
+    B_ps = B//2
 
-        rand_idx = torch.randperm(B)
-        
-        B_ps = B//2
+    img_c = img_c.cuda(non_blocking=True)
+    pxy_v1 = pxy_v1.cuda(non_blocking=True)
+    pxy_v2 = pxy_v2.cuda(non_blocking=True)
+    pxy_c = _generate_pseudo_labels(img_v1[:B_ps], img_c[:B_ps], pxy_v1[:B_ps], encoder, projector)
 
-        img_c = img_c.cuda(non_blocking=True)
-        pxy_v1 = pxy_v1.cuda(non_blocking=True)
-        pxy_v2 = pxy_v2.cuda(non_blocking=True)
-        if mode == 'fsl':
-            pxy_c = batch['pxy_c'].cuda(non_blocking=True)[:B_ps]
-        elif mode =='wsl':
-            pxy_c = _generate_pseudo_labels(img_v1[:B_ps], img_c[:B_ps], pxy_v1[:B_ps], encoder, projector)
-
-        img_v2 = torch.cat([img_v2[B_ps:], img_v1[:B_ps]])[rand_idx]
-        img_v1 = torch.cat([img_v1[B_ps:], img_c[:B_ps]])[rand_idx]
-        
-        pxy_v2 = torch.cat([pxy_v2[B_ps:], pxy_v1[:B_ps]])[rand_idx]
-        pxy_v1 = torch.cat([pxy_v1[B_ps:], pxy_c])[rand_idx]
+    img_v2 = torch.cat([img_v2[B_ps:], img_v1[:B_ps]])[rand_idx]
+    img_v1 = torch.cat([img_v1[B_ps:], img_c[:B_ps]])[rand_idx]
+    
+    pxy_v2 = torch.cat([pxy_v2[B_ps:], pxy_v1[:B_ps]])[rand_idx]
+    pxy_v1 = torch.cat([pxy_v1[B_ps:], pxy_c])[rand_idx]
 
     output_q = encoder(img_v1)
 
@@ -466,7 +460,7 @@ def forward_cmt(batch, models, optimizer = None, is_train = True, topk = 100):
 
     output = {}
 
-    imgs, mesh, labels, bbox, pos_enc3d = batch['imgs'], batch['mesh'], batch['labels'], batch['bbox'], batch['pos_enc3d'] 
+    imgs, mesh, labels, bbox, pos_enc3d = batch['query_imgs'], batch['mesh_images'], batch['labels'], batch['bbox'], batch['mesh_pos_enc3d'] 
 
     [encoder, encoder_ema, projector, projector_ema, attention_decoder, local_contrast] = models
     
@@ -555,8 +549,6 @@ def test(args, test_dataset, models):
     all_ious = []
     all_bboxaccus = []
 
-    type_dict = {'position':1, 'rotate':2, 'missing':3, 'damaged':4, 'swapped':5}
-    type_dict = {j:i for i,j in type_dict.items()}
 
     for batch in tqdm(test_dataset):
 
@@ -631,11 +623,11 @@ def train(train_dataset, test_dataset, models, optimizer, lr_scheduler, device, 
 
             i = i + 1
 
-            if len(batch['imgs']) != train_dataset.batch_size:
+            if len(batch['query_imgs']) != train_dataset.batch_size:
                 continue
             
             if not args.no_contr_loss:
-                models, optimizer, log_loss_contr = forward_vlfa(batch, models, optimizer, mode = 'wsl')
+                models, optimizer, log_loss_contr = forward_vlfa(batch, models, optimizer)
 
             models, optimizer, log_loss_cl_bbox, output = forward_cmt(batch, models, optimizer, topk = args.topk)
 
@@ -736,7 +728,7 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(description='help')
     parser.add_argument('--exp_name', type=str, default='CMT-final')
-    parser.add_argument('--data_path', type=str, default='/disk/scratch_ssd/s2514643/brokenchairs/')
+    parser.add_argument('--data_path', type=str, default='./brokenchairs/')
     parser.add_argument('--epochs', type=int, default=50)
     parser.add_argument('--topk', type=int, default=100)
     parser.add_argument('--pred_box', action='store_true')

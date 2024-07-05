@@ -1,6 +1,5 @@
 # Looking 3D: Anomaly Detection with 2D-3D Alignment
 
-
 <table>
   <tr>
       <strong><a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Bhunia_Looking_3D_Anomaly_Detection_with_2D-3D_Alignment_CVPR_2024_paper.pdf">Looking 3D: Anomaly Detection with 2D-3D Alignment</a></strong><br>
@@ -9,33 +8,73 @@
   </tr>
 </table>
 
-
-
 [![Website](https://img.shields.io/badge/Project-Website-87CEEB)](https://groups.inf.ed.ac.uk/vico/research/Looking3D)
 [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://openaccess.thecvf.com/content/CVPR2024/papers/Bhunia_Looking_3D_Anomaly_Detection_with_2D-3D_Alignment_CVPR_2024_paper.pdf)
-[![dataset](https://img.shields.io/badge/Dataset-link-blue)](https://drive.google.com/drive/folders/1D9YFDP0kJkojBa1Rb-fM2uAZoS_1Pm3G?usp=sharing)
+[![dataset](https://img.shields.io/badge/Dataset-link-blue)](https://uoe-my.sharepoint.com/:f:/g/personal/s2514643_ed_ac_uk/EjURAFBBbmxHvlMvDGrKvzEBOB29U3QShVRsqekp0rha_g?e=jenLk6)
 
 <img src=figures/title.jpg>
 
 <hr />
 
-
-
-
 ## Dataset
 
- - Download ```BrokenChairs180K.tar.gz``` from [here](https://drive.google.com/drive/folders/1D9YFDP0kJkojBa1Rb-fM2uAZoS_1Pm3G?usp=sharing).
- - The dataset contains around 180K rendered images with 100K classified as anomaly and 80K normal.
- - Different types of abnormalities include: missing parts, broken parts, swapped components, mis-alignments.
- - The query pose is unknown.
- - Testing is performed on previously unseen instances.
- - Please see ```DATA.md```  for folder structure.
+- The `BrokenChairs180K` dataset is available for download from [here](https://uoe-my.sharepoint.com/:f:/g/personal/s2514643_ed_ac_uk/EjURAFBBbmxHvlMvDGrKvzEBOB29U3QShVRsqekp0rha_g?e=jenLk6).
+- The dataset contains around 180K rendered images with 100K classified as anomaly and 80K normal.
+- Each rendered query image is associated with a normal shape reference.
+- Different types of abnormalities include: missing parts, broken parts, swapped components, mis-alignments.
+- The query pose is unknown.
+- Testing is performed on previously unseen instances.
 
 <img src=figures/data_preview.gif>
 
-## Our novel task & Conditional AD benchmark
-Standard Anomaly Detection (AD) frameworks perform pooly without clear defination of ‘normality’, especially when abnormalities are arbitrary and instance-specific. Our paper introduces a novel conditional AD task, along with a new benchmark and an effective solution, that aims to identify and localize anomalies from a photo of an object instance (i.e., the query image), in relation to a reference 3D model. The 3D model provides the reference shape for the regular object instance, and hence a clear definition of regularity for the query image. This setting is motivated by real-world applications in inspection and quality control, where an object instance is manufactured based on a reference 3D model, which can then be used to identify anomalies (i.e., production faults, damages) from a photo of the instance.
+<table>
+  <tr>
+    <td><b>filename and download link</b></td>
+    <td><b>folder structure</b></td>
+  </tr>
+      <tr>
+    <td><a href="https://uoe-my.sharepoint.com/:u:/g/personal/s2514643_ed_ac_uk/EYoXrt3Ot7ZDmfUNIB9Xq3UBmX5jloND4kW35OaxxLBbTw?e=yieACI">images.zip</a></td>
+    <td>BrokenChairs/images/</td>
+  </tr>
+    <tr>
+    <td><a href="https://uoe-my.sharepoint.com/:u:/g/personal/s2514643_ed_ac_uk/Efu7n0UgwZFKoZZzAdl_ccwByIS7af0Ds5D9wQg5SaPAyw?e=U9HtP1">annotations.zip</a></td>
+    <td>BrokenChairs/annotations/</td>
+  </tr>
+      <tr>
+    <td><a href="https://uoe-my.sharepoint.com/:u:/g/personal/s2514643_ed_ac_uk/Eda1I8N4eTtIjsomzw2wLsMBiAUSRLmbaKt8QWYD3bGw_Q?e=WrVmeU">shapes.zip</a></td>
+    <td>BrokenChairs/shapes/</td>
+  </tr>
+        <tr>
+    <td><a href="https://uoe-my.sharepoint.com/:u:/g/personal/s2514643_ed_ac_uk/Ee6ho7lde_BLqL6fY7V974IBPylEFznzJoNwDLI46qcD-Q?e=fmThG8">split.json</a></td>
+    <td>BrokenChairs/split.json</td>
+  </tr>
+</table>
 
+Note:
+
+[1]`BrokenChairs/images/`: The filenames for the images have a specifc structure. For example in the file with name `render_183_1944_2.5_300_30_3_normal.png`, `183` is the `shape_id`, `1944` is the `texture_id`, `2.5_300_30_3` contains info on camera paramters (in the format of `<radius>_<azim>_<elev>_<light-index>`).
+
+[2]`BrokenChairs/annotations/`:`<info_*>`: It contains 2d_bbox, IoU, camera_parameters and texture_id.
+`<mask_new_*>`: binary mask of the object part with the anomaly.
+`<mask_old_*>`: binary mask of the object part without the anomaly (normal).
+`<mask_new_*>`: segmentation mask of the chair with the anomaly.
+`<mask_old_*>`: segmentation mask of the chair without the anomaly (normal).
+
+[3]`BrokenChairs/shapes/`: `<mv_images/*.png>`: grayscale multi-view image,
+`<mv_images/*.json>`: json file containing intristic and extrinsic parameters of the rendered image,
+`<mv_images/*.npy>`: npy file containing 2D-3D correspondence points.
+
+Please refer to `utils/render_multiview.py` which can be used to obtain the above `<png/json/npy>` files from any given `obj/stl/glb` mesh shape.
+
+[4]`BrokenChairs/split.json`: train/test/val split. Each set has mutually exclusive shape instances.
+
+[5] Distribution of anomaly types within our dataset, categorized by salient chair parts, is shown below.
+
+<img src=figures/part_stats.png width=600px>
+
+## More on the proposed novel task & why it is relevent
+
+Standard Anomaly Detection (AD) frameworks perform pooly without clear defination of ‘normality’, especially when abnormalities are arbitrary and instance-specific. Our paper introduces a novel conditional AD task, along with a new benchmark and an effective solution, that aims to identify and localize anomalies from a photo of an object instance (i.e., the query image), in relation to a reference 3D model. The 3D model provides the reference shape for the regular object instance, and hence a clear definition of regularity for the query image. This setting is motivated by real-world applications in inspection and quality control, where an object instance is manufactured based on a reference 3D model, which can then be used to identify anomalies (i.e., production faults, damages) from a photo of the instance.
 
 <table>
   <tr>
@@ -48,18 +87,13 @@ Standard Anomaly Detection (AD) frameworks perform pooly without clear definatio
   </tr>
 </table>
 
-## Method
-
-Our model ```Correspondence Matching Transformer``` (CMT) learns to capture cross-modality relationships by applying a novel cross-attention mechanism through a sparse set of local correspondences. We use an auxiliary task that forces the model to learn viewpoint invariant representations for each local patch in query and multi-view images enabling our method to align local
-features corresponding to the same 3D location regardless of its viewpoint without ground truth correspondences.
-
 ## Pretrained Models
- - Download the pretrained model from [here](https://drive.google.com/drive/folders/1D9YFDP0kJkojBa1Rb-fM2uAZoS_1Pm3G?usp=sharing) and place the .pt file inside ```experiments/CMT-final/checkpoints/```
 
-   
+- Download the pretrained model from [here](https://uoe-my.sharepoint.com/:u:/g/personal/s2514643_ed_ac_uk/EWQ7dANJ1xhGnlwNP_S339MBaUXe6G55ow1JKMqWWJLaDw?e=t08Xzc) and place the .pt file inside `experiments/CMT-final/checkpoints/`
+
 ## Conda Installation
 
-```bash
+```bash {"id":"01J22BGWJ0NA4YERREQJ5X2GFT"}
 # Create a conda virtual environment for basic training/testing: 
 conda create -n Looking3D python=3.8
 conda activate Looking3D
@@ -73,28 +107,43 @@ pip install "git+https://github.com/facebookresearch/pytorch3d.git"
 
 ## Training and Evaluation on BrokenChairs-180K
 
-Please see ```EXPERIMENT.md``` for commands to run the training and testing codes. 
-
+Please see [`EXPERIMENT.md`]() for commands to run the training and testing codes.
 
 ## Inference
 
-You can use the python function ```predict(.)``` in the ```demo.py``` file for the inference.
+You can use the python function `predict(.)` in the `demo.py` file for the inference.
 
-  ```python
+```python {"id":"01J22BGWJ0NA4YERREQMHVP99N"}
 from demo import predict
 
 pred_labels = predict(query_path = "sample/query_example.png", \
-                       mv_path = "sample/mv_images/", \
-                       resume_ckpt = "experiments/CMT-final/checkpoints/model.pt", device = "cuda", topk = 100)
-  ```
+                     mv_path = "sample/mv_images/", \
+                     resume_ckpt = "experiments/CMT-final/checkpoints/model.pt", device = "cuda", topk = 100)
+```
 
-Please see ```CUSTOM.md``` for a detailed discussion on how to use the codebase to test and train on custom datasets containing shape-image pairs.
+## Testing using custom data
+
+```bash {"id":"01J22GFZ30MRZK4VEANC2SV04S"}
+# Step 1. Render grayscale multiview images (pytorch3d and pyrender required)
+python utils/render_multiview.py \
+  --obj_path data/mesh_reference.glb \
+  --out_path data/itw_testing/sample/mv_images/ \
+  --num_imgs 20 \
+  --gray_scale
+```
+
+```bash {"id":"01J22GFZ30MRZK4VEANCCZK82W"}
+# Step 2. Test the model
+python demo.py --mv_path data/itw_testing/sample/mv_images/ \
+  --query_path data/query_example.png \
+  --resume_ckpt experiments/CMT-final/checkpoints/model.pt
+```
 
 ## Citation
 
 If you use the results and code for your research, please cite our paper:
 
-```
+```json {"id":"01J22BGWJ16CEQ2P830YSEDQ4B"}
 @article{bhunia2024look3d,
   title={Looking 3D: Anomaly Detection with 2D-3D Alignment},
   author={Bhunia, Ankan Kumar and Li, Changjian and Bilen, Hakan},

@@ -8,7 +8,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='help')
 
     parser.add_argument('--resume_ckpt', type=str, default=None)
-    parser.add_argument('--data_path', type=str, default='/disk/scratch_ssd/s2514643/brokenchairs/')
+    parser.add_argument('--data_path', type=str, default='./brokenchairs/')
     parser.add_argument('--num_mesh_images', type=int, default=5)
     parser.add_argument('--n_pnts', type=int, default=32)
     parser.add_argument('--topk', type=int, default=100)
