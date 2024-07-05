@@ -107,7 +107,7 @@ pip install "git+https://github.com/facebookresearch/pytorch3d.git"
 
 ## Training and Evaluation on BrokenChairs-180K
 
-Please see [`EXPERIMENT.md`]() for commands to run the training and testing codes.
+Please see [`EXPERIMENT.md`](https://github.com/VICO-UoE/Looking3D/blob/main/EXPERIMENT.md) for commands to run the training and testing codes.
 
 ## Inference
 
