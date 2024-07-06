@@ -70,6 +70,8 @@ Note:
 `<mask_new_*>`: segmentation mask of the chair with the anomaly.
 `<mask_old_*>`: segmentation mask of the chair without the anomaly (normal).
 
+Annotations are available for anomaly images only. For some anomaly types like missing component, ```<mask_old_*>``` is not available. 
+
 [3]`BrokenChairs/shapes/`: `<mv_images/*.png>`: grayscale multi-view image,
 `<mv_images/*.json>`: json file containing intristic and extrinsic parameters of the rendered image,
 `<mv_images/*.npy>`: npy file containing 2D-3D correspondence points.
