@@ -31,22 +31,32 @@
   <tr>
     <td><b>filename and download link</b></td>
     <td><b>folder structure</b></td>
+    <td><b>size (after extracting)</b></td>
+    <td><b>comments</b></td>
   </tr>
       <tr>
     <td><a href="https://uoe-my.sharepoint.com/:u:/g/personal/s2514643_ed_ac_uk/EYoXrt3Ot7ZDmfUNIB9Xq3UBmX5jloND4kW35OaxxLBbTw?e=yieACI">images.zip</a></td>
     <td>BrokenChairs/images/</td>
+    <td>21 GB</td>
+    <td>[1] (see below)</td>
   </tr>
     <tr>
     <td><a href="https://uoe-my.sharepoint.com/:u:/g/personal/s2514643_ed_ac_uk/Efu7n0UgwZFKoZZzAdl_ccwByIS7af0Ds5D9wQg5SaPAyw?e=U9HtP1">annotations.zip</a></td>
     <td>BrokenChairs/annotations/</td>
+    <td>2 GB</td>
+      <td>[2] (see below)</td>
   </tr>
       <tr>
     <td><a href="https://uoe-my.sharepoint.com/:u:/g/personal/s2514643_ed_ac_uk/Eda1I8N4eTtIjsomzw2wLsMBiAUSRLmbaKt8QWYD3bGw_Q?e=WrVmeU">shapes.zip</a></td>
     <td>BrokenChairs/shapes/</td>
+    <td>14 GB</td>
+        <td>[3] (see below)</td>
   </tr>
-        <tr>
+    <tr>
     <td><a href="https://uoe-my.sharepoint.com/:u:/g/personal/s2514643_ed_ac_uk/Ee6ho7lde_BLqL6fY7V974IBPylEFznzJoNwDLI46qcD-Q?e=fmThG8">split.json</a></td>
     <td>BrokenChairs/split.json</td>
+      <td>134 KB</td>
+      <td>[4] (see below)</td>
   </tr>
 </table>
 
@@ -69,7 +79,7 @@ Please refer to `utils/render_multiview.py` which can be used to obtain the abov
 
 [4]`BrokenChairs/split.json`: train/test/val split. Each set has mutually exclusive shape instances.
 
-[5] Distribution of anomaly types within our dataset, categorized by salient chair parts, is shown below.
+- Distribution of anomaly types within our dataset, categorized by salient chair parts, is shown below.
 
 <img src=figures/part_stats.png width=600px>
 
