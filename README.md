@@ -10,7 +10,7 @@
 
 [![Website](https://img.shields.io/badge/Project-Website-87CEEB)](https://groups.inf.ed.ac.uk/vico/research/Looking3D)
 [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://openaccess.thecvf.com/content/CVPR2024/papers/Bhunia_Looking_3D_Anomaly_Detection_with_2D-3D_Alignment_CVPR_2024_paper.pdf)
-[![dataset](https://img.shields.io/badge/Dataset-link-blue)](https://huggingface.co/datasets/ankankbhunia/brokenchairs180k)
+[![dataset](https://img.shields.io/badge/Dataset-link-blue)](https://huggingface.co/datasets/ankankbhunia/brokenchairs180k/tree/main)
 
 <img src=figures/title.jpg>
 
@@ -22,7 +22,7 @@
 
 ## Dataset
 
-- The `BrokenChairs180K` dataset is available for download from [here](https://huggingface.co/datasets/ankankbhunia/brokenchairs180k).
+- The `BrokenChairs180K` dataset is available for download from [here](https://huggingface.co/datasets/ankankbhunia/brokenchairs180k/tree/main).
 - The dataset contains around 180K rendered images with 100K classified as anomaly and 80K normal.
 - Each rendered query image is associated with a normal shape reference.
 - Different types of abnormalities include: missing parts, broken parts, swapped components, mis-alignments.
