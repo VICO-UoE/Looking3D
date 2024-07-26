@@ -10,15 +10,19 @@
 
 [![Website](https://img.shields.io/badge/Project-Website-87CEEB)](https://groups.inf.ed.ac.uk/vico/research/Looking3D)
 [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://openaccess.thecvf.com/content/CVPR2024/papers/Bhunia_Looking_3D_Anomaly_Detection_with_2D-3D_Alignment_CVPR_2024_paper.pdf)
-[![dataset](https://img.shields.io/badge/Dataset-link-blue)](https://uoe-my.sharepoint.com/:f:/g/personal/s2514643_ed_ac_uk/EjURAFBBbmxHvlMvDGrKvzEBOB29U3QShVRsqekp0rha_g?e=jenLk6)
+[![dataset](https://img.shields.io/badge/Dataset-link-blue)](https://huggingface.co/datasets/ankankbhunia/brokenchairs180k)
 
 <img src=figures/title.jpg>
 
 <hr />
 
+## News
+
+26/07/2024 - Had some issues with the dataset links. Now the data is hosted in huggingface. 
+
 ## Dataset
 
-- The `BrokenChairs180K` dataset is available for download from [here](https://uoe-my.sharepoint.com/:f:/g/personal/s2514643_ed_ac_uk/EjURAFBBbmxHvlMvDGrKvzEBOB29U3QShVRsqekp0rha_g?e=jenLk6).
+- The `BrokenChairs180K` dataset is available for download from [here](https://huggingface.co/datasets/ankankbhunia/brokenchairs180k).
 - The dataset contains around 180K rendered images with 100K classified as anomaly and 80K normal.
 - Each rendered query image is associated with a normal shape reference.
 - Different types of abnormalities include: missing parts, broken parts, swapped components, mis-alignments.
@@ -35,25 +39,25 @@
     <td><b>comments</b></td>
   </tr>
       <tr>
-    <td><a href="https://uoe-my.sharepoint.com/:u:/g/personal/s2514643_ed_ac_uk/EYoXrt3Ot7ZDmfUNIB9Xq3UBmX5jloND4kW35OaxxLBbTw?e=yieACI">images.zip</a></td>
+    <td><a href="https://huggingface.co/datasets/ankankbhunia/brokenchairs180k/resolve/main/images.zip">images.zip</a></td>
     <td>BrokenChairs/images/</td>
     <td>21 GB</td>
     <td>[1] (see below)</td>
   </tr>
     <tr>
-    <td><a href="https://uoe-my.sharepoint.com/:u:/g/personal/s2514643_ed_ac_uk/Efu7n0UgwZFKoZZzAdl_ccwByIS7af0Ds5D9wQg5SaPAyw?e=U9HtP1">annotations.zip</a></td>
+    <td><a href="https://huggingface.co/datasets/ankankbhunia/brokenchairs180k/resolve/main/annotations.zip">annotations.zip</a></td>
     <td>BrokenChairs/annotations/</td>
     <td>2 GB</td>
       <td>[2] (see below)</td>
   </tr>
       <tr>
-    <td><a href="https://uoe-my.sharepoint.com/:u:/g/personal/s2514643_ed_ac_uk/Eda1I8N4eTtIjsomzw2wLsMBiAUSRLmbaKt8QWYD3bGw_Q?e=WrVmeU">shapes.zip</a></td>
+    <td><a href="https://huggingface.co/datasets/ankankbhunia/brokenchairs180k/resolve/main/shapes.zip">shapes.zip</a></td>
     <td>BrokenChairs/shapes/</td>
     <td>14 GB</td>
         <td>[3] (see below)</td>
   </tr>
     <tr>
-    <td><a href="https://uoe-my.sharepoint.com/:u:/g/personal/s2514643_ed_ac_uk/Ee6ho7lde_BLqL6fY7V974IBPylEFznzJoNwDLI46qcD-Q?e=fmThG8">split.json</a></td>
+    <td><a href="https://huggingface.co/datasets/ankankbhunia/brokenchairs180k/resolve/main/split.json">split.json</a></td>
     <td>BrokenChairs/split.json</td>
       <td>134 KB</td>
       <td>[4] (see below)</td>
@@ -102,7 +106,7 @@ Standard Anomaly Detection (AD) frameworks perform pooly without clear definatio
 
 ## Pretrained Models
 
-- Download the pretrained model from [here](https://uoe-my.sharepoint.com/:u:/g/personal/s2514643_ed_ac_uk/EWQ7dANJ1xhGnlwNP_S339MBaUXe6G55ow1JKMqWWJLaDw?e=t08Xzc) and place the .pt file inside `experiments/CMT-final/checkpoints/`
+- Download the pretrained model from [here](https://huggingface.co/datasets/ankankbhunia/brokenchairs180k/resolve/main/model.pt) and place the .pt file inside `experiments/CMT-final/checkpoints/`
 
 ## Conda Installation
 
